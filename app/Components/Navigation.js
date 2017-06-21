@@ -9,7 +9,7 @@ function Navigation (props) {
         <ul className='nav'>
         {people.map((person) => {
             return (
-                <li activeClassName='active'
+                <li className={person === props.selectedPerson ? 'active' : ''}
                     onClick={props.onSelect.bind(null, person)}
                     key={person}>
                     {person}
