@@ -2,26 +2,57 @@ var React = require('react');
 var Link = require('react-router-dom').Link;
 var NavLink = require('react-router-dom').NavLink;
 
-function Navigation () {
+function Navigation (props) {
+    var people = ['Alex', 'Ben', 'Britton', 'Eliza', 'Ethan', 'Jess', 'Karen', 'Marilyn', 'Megan', 'Reuben', 'Ruby', 'Sophia'];
+
     return (
         <ul className='nav'>
-            <li>
-                <NavLink exact activeClassName='active' to='/'>
-                    Home
-                </NavLink>
-            </li>
-            <li>
-                <NavLink activeClassName='active' to='/battle'>
-                    Battle
-                </NavLink>
-            </li>
-            <li>
-                <NavLink activeClassName='active' to='/popular'>
-                    Popular
-                </NavLink>
-            </li>
+        {people.map((person) => {
+            return (
+                <li activeClassName='active'
+                    onClick={props.onSelect.bind(null, person)}
+                    key={person}>
+                    {person}
+                </li>
+            )
+        })}
         </ul>
     )
 }
 
-module.exports = Navigation;
+class People extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            selectedPerson: ''
+        };
+
+        this.updatePerson = this.updatePerson.bind(this);
+    }
+
+    componentDidMount() {
+        this.updatePerson(this.state.selectedPerson);
+    }
+
+    updatePerson (person) {
+        console.log(person)
+        this.setState(function () {
+            return {
+                selectedPerson: person
+            }
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <Navigation
+                    selectedPerson={this.state.selectedPerson}
+                    onSelect={this.updatePerson}
+                     />
+            </div>
+        )
+    }
+}
+
+module.exports = People;
