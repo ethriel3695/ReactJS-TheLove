@@ -3,7 +3,8 @@ var Link = require('react-router-dom').Link;
 var NavLink = require('react-router-dom').NavLink;
 
 function Navigation (props) {
-    var people = ['Alex', 'Ben', 'Britton', 'Eliza', 'Ethan', 'Jess', 'Karen', 'Marilyn', 'Megan', 'Reuben', 'Ruby', 'Sophia'];
+    var people = ['Alex', 'Ben', 'Britton', 'Eliza', 'Ethan', 'Jess', 'Karen'
+        , 'Marilyn', 'Megan', 'Reuben', 'Ruby', 'Sophia'];
 
     return (
         <ul className='nav'>
@@ -35,7 +36,6 @@ class People extends React.Component {
     }
 
     updatePerson (person) {
-        console.log(person)
         this.setState(function () {
             return {
                 selectedPerson: person
