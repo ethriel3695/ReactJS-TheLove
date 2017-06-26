@@ -14,10 +14,33 @@ var config = {
             { test: /\.(js)$/, use: 'babel-loader' },
             { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
             { test: /\.(jpe?g|png|gif|svg)$/i,
-                use: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']}
-        ]
-    },
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/img[name].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            query: {
+                                mozjpeg: {
+                                    progressive: true,
+                                    quality: 65
+                                },
+                                gifsicle: {
+                                    optimizationLevel: 7,
+                                    interlaced: false,
+                                },
+                                optipng: {
+                                    optimizationLevel: 7,
+                                    interlaced: false
+                                }
+                            }
+                        }
+                    }]}
+        ]},
     devServer: {
         historyApiFallback: true
     },
