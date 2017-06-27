@@ -38,12 +38,13 @@ li {
 }
 
 .home-container {
+    text-align: center;
     width: 500px;
     height: 450px;
 }
 
 .carouselImages {
-    height: 200px;
-    width: 250px;
+    height: 350px;
+    width: 450px;
+    border-radius: 5px;
 }
-

@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.1",
+    "dev-dependencies": "^1.0.0",
     "prop-types": "^15.5.4",
     "query-string": "^4.3.4",
     "react": "^15.5.4",
