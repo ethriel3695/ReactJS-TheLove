@@ -37,3 +37,13 @@ li {
     font-weight: bold;
 }
 
+.home-container {
+    width: 500px;
+    height: 450px;
+}
+
+.carouselImages {
+    height: 200px;
+    width: 250px;
+}
+
