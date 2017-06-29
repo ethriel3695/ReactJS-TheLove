@@ -2,33 +2,74 @@ var React = require('react');
 var Link = require('react-router-dom').Link;
 //var images = require('Images/images');
 import * as imageGroup from './Images.js';
-var $ = require('jquery');
 
-var carousel = $(".carouselContainer"),
-    currdeg  = 0;
+// var carousel = $(".carouselContainer"),
+//     currdeg  = 0;
 
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
+// $(".next").on("click", { d: "n" }, rotate);
+// $(".prev").on("click", { d: "p" }, rotate);
 
-function rotate(e){
-  if(e.data.d=="n"){
-    currdeg = currdeg - 60;
-  }
-  if(e.data.d=="p"){
-    currdeg = currdeg + 60;
-  }
-  carousel.css({
-    "-webkit-transform": "rotateY("+currdeg+"deg)",
-    "-moz-transform": "rotateY("+currdeg+"deg)",
-    "-o-transform": "rotateY("+currdeg+"deg)",
-    "transform": "rotateY("+currdeg+"deg)"
-  });
-}
+// function rotate(e){
+//   if(e.data.d=="n"){
+//     currdeg = currdeg - 60;
+//   }
+//   if(e.data.d=="p"){
+//     currdeg = currdeg + 60;
+//   }
+//   carousel.css({
+//     "-webkit-transform": "rotateY("+currdeg+"deg)",
+//     "-moz-transform": "rotateY("+currdeg+"deg)",
+//     "-o-transform": "rotateY("+currdeg+"deg)",
+//     "transform": "rotateY("+currdeg+"deg)"
+//   });
+// }
 
 //USE THIS LINK TO CREATE A CAROUSEL
 //https://codepen.io/nopr/pen/rfBJx
 
 class Home extends React.Component {
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            degreeVariation: 0
+        }
+
+        this.rotateImagesLeft = this.rotateImagesLeft.bind(this);
+        this.rotateImagesRight = this.rotateImagesRight.bind(this);
+        this.updateImagesPosition = this.updateImagesPosition.bind(this);
+    }
+
+    componentDidMount() {
+        //this.updateImagesPosition(this.state.degreeVariation);
+    }
+
+    rotateImagesLeft(){
+        var currentPosition = this.state.degreeVariation;
+        this.setState(function () {
+            return {
+                degreeVariation: currentPosition + 60
+            }
+        })
+        this.updateImagesPosition(this.state.degreeVariation);
+    }
+
+    rotateImagesRight(){
+        var currentPosition = this.state.degreeVariation;
+        this.setState(function () {
+            return {
+                degreeVariation: currentPosition - 60
+            }
+        })
+        this.updateImagesPosition(currentPosition);
+    }
+
+    updateImagesPosition(currentPosition){
+        console.log(this.state.degreeVariation);
+        var carouselObject = document.getElementsByClassName("carouselContainer");
+        console.log(carouselObject);
+        carouselObject[0].style.transform="rotateY("+currentPosition+"deg)";
+    }
     
     render() {
         return (
@@ -51,8 +92,8 @@ class Home extends React.Component {
                             src={imageGroup.firstpic} alt='' />
                     </div>
                 </div>
-                <div className="next">Next</div>
-                <div className="prev">Prev</div>
+                <div className="next" onClick={this.rotateImagesRight}>Next</div>
+                <div className="prev" onClick={this.rotateImagesLeft}>Prev</div>
             </div>
         )
     }
