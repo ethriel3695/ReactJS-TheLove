@@ -1,31 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-//var images = require('Images/images');
 import * as imageGroup from './Images.js';
-
-// var carousel = $(".carouselContainer"),
-//     currdeg  = 0;
-
-// $(".next").on("click", { d: "n" }, rotate);
-// $(".prev").on("click", { d: "p" }, rotate);
-
-// function rotate(e){
-//   if(e.data.d=="n"){
-//     currdeg = currdeg - 60;
-//   }
-//   if(e.data.d=="p"){
-//     currdeg = currdeg + 60;
-//   }
-//   carousel.css({
-//     "-webkit-transform": "rotateY("+currdeg+"deg)",
-//     "-moz-transform": "rotateY("+currdeg+"deg)",
-//     "-o-transform": "rotateY("+currdeg+"deg)",
-//     "transform": "rotateY("+currdeg+"deg)"
-//   });
-// }
-
-//USE THIS LINK TO CREATE A CAROUSEL
-//https://codepen.io/nopr/pen/rfBJx
 
 class Home extends React.Component {
 
@@ -42,33 +17,34 @@ class Home extends React.Component {
 
     componentDidMount() {
         //this.updateImagesPosition(this.state.degreeVariation);
+        //this.rotateImagesRight();
     }
 
     rotateImagesLeft(){
-        var currentPosition = this.state.degreeVariation;
-        this.setState(function () {
-            return {
-                degreeVariation: currentPosition + 60
-            }
-        })
-        this.updateImagesPosition(this.state.degreeVariation);
+        this.setState({
+            degreeVariation: this.state.degreeVariation + 60,    
+        }, function () {
+            this.updateImagesPosition(this.state.degreeVariation);
+        }.bind(this));
     }
 
     rotateImagesRight(){
-        var currentPosition = this.state.degreeVariation;
-        this.setState(function () {
-            return {
-                degreeVariation: currentPosition - 60
-            }
-        })
-        this.updateImagesPosition(currentPosition);
+        this.setState({
+            degreeVariation: this.state.degreeVariation - 60,    
+        }, function () {
+            this.updateImagesPosition(this.state.degreeVariation);
+        }.bind(this));
     }
 
     updateImagesPosition(currentPosition){
+        console.log(currentPosition);
         console.log(this.state.degreeVariation);
         var carouselObject = document.getElementsByClassName("carouselContainer");
         console.log(carouselObject);
         carouselObject[0].style.transform="rotateY("+currentPosition+"deg)";
+        carouselObject[0].style.webkitTransform="rotateY("+currentPosition+"deg)";
+        carouselObject[0].style.mozTransform="rotateY("+currentPosition+"deg)";
+        carouselObject[0].style.oTransform="rotateY("+currentPosition+"deg)";
     }
     
     render() {
