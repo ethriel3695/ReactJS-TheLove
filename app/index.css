@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 
 .container {
@@ -131,8 +131,18 @@ i {
 .descriptionContainer {
     margin: 0 auto;
     position: relative;
-    perspective: 1000px;
-    top: 100px;
-    line-height: 300px;
-    border: 2px solid #000;
+    top: 70px;
+}
+
+.descriptionHeader {
+    text-align: center;
+}
+
+.descriptionList {
+    text-align: center;
+}
+
+.descriptionItem {
+    list-style-type: none;
+    padding: 20px;
 }

@@ -5,6 +5,7 @@ var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
 var Navigation = require('./Navigation');
+var Description = require('./Description');
 var Home = require('./Home');
 // var Battle = require('./Battle');
 // var Results = require('./Results');
@@ -18,10 +19,7 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path='/' component={Home} />
                     </Switch>
-                <div className='descriptionContainer'>
-                    lkjasdddddddddddddddddddddddf
-                    asdfkjl;asdjfjlksadfj;dsjf;lsdkajfla;skdj
-                </div>
+                    <Description />
                 </div>
             </Router>
         )
