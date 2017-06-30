@@ -37,10 +37,7 @@ class Home extends React.Component {
     }
 
     updateImagesPosition(currentPosition){
-        console.log(currentPosition);
-        console.log(this.state.degreeVariation);
         var carouselObject = document.getElementsByClassName("carouselContainer");
-        console.log(carouselObject);
         carouselObject[0].style.transform="rotateY("+currentPosition+"deg)";
         carouselObject[0].style.webkitTransform="rotateY("+currentPosition+"deg)";
         carouselObject[0].style.mozTransform="rotateY("+currentPosition+"deg)";
@@ -67,9 +64,12 @@ class Home extends React.Component {
                         <img className='carouselImages pic6' 
                             src={imageGroup.firstpic} alt='' />
                     </div>
+                <i className="next" 
+                    onClick={this.rotateImagesRight}></i>
+                <i className="prev" 
+                    onClick={this.rotateImagesLeft}></i>
                 </div>
-                <div className="next" onClick={this.rotateImagesRight}>Next</div>
-                <div className="prev" onClick={this.rotateImagesLeft}>Prev</div>
+
             </div>
         )
     }
