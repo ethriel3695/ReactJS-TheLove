@@ -18,6 +18,10 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path='/' component={Home} />
                     </Switch>
+                <div className='descriptionContainer'>
+                    lkjasdddddddddddddddddddddddf
+                    asdfkjl;asdjfjlksadfj;dsjf;lsdkajfla;skdj
+                </div>
                 </div>
             </Router>
         )

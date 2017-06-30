@@ -107,7 +107,7 @@ transform: rotate(-45deg);
 }
 
 i {
-  border: solid #fff;
+  border: solid #000;
     top: 110px;
     cursor: pointer;
     position: absolute;
@@ -116,5 +116,23 @@ i {
     padding: 15px;
 }
 
-.next { left: 16em; }
-.prev { right: 16em; }
+.next { left: 28em; }
+.prev { right: 28em; }
+
+.captionContainer {
+    display: block;
+    position: absolute;
+    height: 240px;
+    width: 270px;
+    line-height: 520px;
+    text-align: center;
+}
+
+.descriptionContainer {
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px;
+    top: 100px;
+    line-height: 300px;
+    border: 2px solid #000;
+}
