@@ -1,6 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-import * as imageGroup from './Images.js';
+import * as userObject from '../utilities/userObject.js';
 
 class Home extends React.Component {
 
@@ -48,36 +48,42 @@ class Home extends React.Component {
         return (
 
             <div className='home-container'>
-                <h1 className='header'>A Glimpse of Love!</h1>
+                <h1 className='header'>{userObject.userObject.user[0].name}</h1>
                 <div className='imageContainer'>
                     <div className='carouselContainer'>
                         <img className='carouselImages pic1'
-                            src={imageGroup.firstpic} alt='This is alex' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image1} alt='This is alex' />
                         <figcaption className='captionContainer pic1'>
                             Alex and Ruby
                         </figcaption>
                         <img className='carouselImages pic2'
-                            src={imageGroup.secondpic} alt='' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image2} alt='' />
                         <figcaption className='captionContainer pic2'>
                             Alex is cute
                         </figcaption>
                         <img className='carouselImages pic3'
-                            src={imageGroup.firstpic} alt='' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image3} alt='' />
                         <figcaption className='captionContainer pic3'>
                             Alex Test 2
                         </figcaption>
                         <img className='carouselImages pic4'
-                            src={imageGroup.firstpic} alt='' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image4} alt='' />
                         <figcaption className='captionContainer pic4'>
                             Alex Test 3
                         </figcaption>
                         <img className='carouselImages pic5'
-                            src={imageGroup.firstpic} alt='' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image5} alt='' />
                         <figcaption className='captionContainer pic5'>
                             Alex Test 4
                         </figcaption>
                         <img className='carouselImages pic6'
-                            src={imageGroup.firstpic} alt='' />
+                            src={userObject.userObject.user[0].images[0]
+                                .image6} alt='' />
                         <figcaption className='captionContainer pic6'>
                             Alex Test 5
                         </figcaption>

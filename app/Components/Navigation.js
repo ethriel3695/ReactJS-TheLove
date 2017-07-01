@@ -1,6 +1,4 @@
 var React = require('react');
-var Link = require('react-router-dom').Link;
-var NavLink = require('react-router-dom').NavLink;
 
 function Navigation (props) {
     var people = ['Alex', 'Ben', 'Britton', 'Eliza', 'Ethan', 'Jess', 'Karen'
@@ -21,38 +19,38 @@ function Navigation (props) {
     )
 }
 
-class People extends React.Component {
-    constructor (props) {
-        super(props);
-        this.state = {
-            selectedPerson: ''
-        };
+// class People extends React.Component {
+//     constructor (props) {
+//         super(props);
+//         this.state = {
+//             selectedPerson: ''
+//         };
 
-        this.updatePerson = this.updatePerson.bind(this);
-    }
+//         this.updatePerson = this.updatePerson.bind(this);
+//     }
 
-    componentDidMount() {
-        this.updatePerson(this.state.selectedPerson);
-    }
+//     componentDidMount() {
+//         this.updatePerson(this.state.selectedPerson);
+//     }
 
-    updatePerson (person) {
-        this.setState(function () {
-            return {
-                selectedPerson: person
-            }
-        });
-    }
+//     updatePerson (person) {
+//         this.setState(function () {
+//             return {
+//                 selectedPerson: person
+//             }
+//         });
+//     }
 
-    render() {
-        return (
-            <div>
-                <Navigation
-                    selectedPerson={this.state.selectedPerson}
-                    onSelect={this.updatePerson}
-                     />
-            </div>
-        )
-    }
-}
+//     render() {
+//         return (
+//             <div>
+//                 <Navigation
+//                     selectedPerson={this.state.selectedPerson}
+//                     onSelect={this.updatePerson}
+//                      />
+//             </div>
+//         )
+//     }
+// }
 
-module.exports = People;
+module.exports = Navigation;
