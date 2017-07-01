@@ -7,7 +7,7 @@ var Switch = ReactRouter.Switch;
 var Navigation = require('./Navigation');
 var Description = require('./Description');
 var Home = require('./Home');
-import * as userObject from '../utilities/userObject.js';
+import userObject from '../utilities/userObject.js';
 
 class App extends React.Component {
 
@@ -18,36 +18,75 @@ class App extends React.Component {
             user: []
         };
 
-        this.updatePerson = this.updatePerson.bind(this);
+        this.updateSelectedUser = this.updateSelectedUser.bind(this);
+        this.updateUserObject = this.updateUserObject.bind(this);
+        this.filterUsers = this.filterUsers.bind(this);
     }
 
     componentDidMount() {
-        this.updatePerson(this.state.selectedPerson);
+        this.updateSelectedUser('Alex');
     }
 
-    updatePerson (person) {
-        this.setState(function () {
+    updateSelectedUser(person) {
+        this.setState({
+                selectedPerson: person,
+            }, function () {
+                this.filterUsers(this.state.selectedPerson);
+            }.bind(this));
+        };
+
+    filterUsers(selectedUser) {
+        console.log(selectedUser);
+        {userObject.users.map((user) => {
+            if (user.name === selectedUser) {
+                console.log(name)
+                this.updateUserObject(user);
+        }})}
+    }
+
+    // filterUsers () {
+    //     {userObject.userObject.map((user) => {
+    //         if (user.name === this.state.selectedPerson) {
+    //             this.setState(function () {
+    //                 return {
+    //                     user: user
+    //                 }
+    //             })
+    //             console.log(user);
+    //         }
+    //     })}
+    // }
+
+    updateUserObject (user) {
+        console.log(user);
+        this.setState(function() {
             return {
-                selectedPerson: person
+                user: user
             }
         });
     }
 
-                    //      {userObject.userObject.user.map((name) => {
-                    //      {name === this.state.selectedPerson ? this.state.user}
-                    //     <Home 
-                    //         user={this.state.user}
-                    //     />
-                    //  })}
-
     render () {
+        // return (
+        //         <div className='container'>
+        //             <Navigation
+        //             selectedPerson={this.state.selectedPerson}
+        //             onSelect={this.updatePerson}
+        //              />
+        //             <Home />
+        //             <Description />
+        //         </div>
+        // )
         return (
                 <div className='container'>
                     <Navigation
-                    selectedPerson={this.state.selectedPerson}
-                    onSelect={this.updatePerson}
+                        selectedPerson={this.state.selectedPerson}
+                        onSelect={this.updateSelectedUser}
                      />
-                    <Home />
+                    <Home 
+                        user={this.state.user}
+                    />
+                     })}
                     <Description />
                 </div>
         )
