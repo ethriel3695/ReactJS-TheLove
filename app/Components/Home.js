@@ -1,6 +1,5 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-import * as userObject from '../utilities/userObject.js';
 
 class Home extends React.Component {
 
@@ -15,8 +14,18 @@ class Home extends React.Component {
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
     }
 
-    componentDidMount() {
-        //this.updateImagesPosition(this.state.degreeVariation);
+    shouldComponentUpdate() {
+        if (this.props.user.name !== this.state.degreeVariation) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    ComponentWillUpdate() {
+        console.log('this needs to happen when user changes');
+        this.updateImagesPosition(0);
         //this.rotateImagesRight();
     }
 
@@ -46,44 +55,37 @@ class Home extends React.Component {
 
     render() {
         return (
-
             <div className='home-container'>
-                <h1 className='header'>{userObject.userObject.user[0].name}</h1>
+                <h1 className='header'>{this.props.user.name}</h1>
                 <div className='imageContainer'>
                     <div className='carouselContainer'>
                         <img className='carouselImages pic1'
-                            src={userObject.userObject.user[0].images[0]
-                                .image1} alt='This is alex' />
+                            src={this.props.user.images[0]} alt='This is alex' />
                         <figcaption className='captionContainer pic1'>
                             Alex and Ruby
                         </figcaption>
                         <img className='carouselImages pic2'
-                            src={userObject.userObject.user[0].images[0]
-                                .image2} alt='' />
+                            src={this.props.user.images[1]} alt='' />
                         <figcaption className='captionContainer pic2'>
                             Alex is cute
                         </figcaption>
                         <img className='carouselImages pic3'
-                            src={userObject.userObject.user[0].images[0]
-                                .image3} alt='' />
+                            src={this.props.user.images[2]} alt='' />
                         <figcaption className='captionContainer pic3'>
                             Alex Test 2
                         </figcaption>
                         <img className='carouselImages pic4'
-                            src={userObject.userObject.user[0].images[0]
-                                .image4} alt='' />
+                            src={this.props.user.images[3]} alt='' />
                         <figcaption className='captionContainer pic4'>
                             Alex Test 3
                         </figcaption>
                         <img className='carouselImages pic5'
-                            src={userObject.userObject.user[0].images[0]
-                                .image5} alt='' />
+                            src={this.props.user.images[4]} alt='' />
                         <figcaption className='captionContainer pic5'>
                             Alex Test 4
                         </figcaption>
                         <img className='carouselImages pic6'
-                            src={userObject.userObject.user[0].images[0]
-                                .image6} alt='' />
+                            src={this.props.user.images[5]} alt='' />
                         <figcaption className='captionContainer pic6'>
                             Alex Test 5
                         </figcaption>

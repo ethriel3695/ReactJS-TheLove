@@ -7,14 +7,14 @@ var Switch = ReactRouter.Switch;
 var Navigation = require('./Navigation');
 var Description = require('./Description');
 var Home = require('./Home');
-import userObject from '../utilities/userObject.js';
+import * as userObject from '../utilities/userObject.js';
 
 class App extends React.Component {
 
     constructor (props) {
         super(props);
         this.state = {
-            selectedPerson: '',
+            selectedPerson: 'Alex',
             user: []
         };
 
@@ -23,8 +23,8 @@ class App extends React.Component {
         this.filterUsers = this.filterUsers.bind(this);
     }
 
-    componentDidMount() {
-        this.updateSelectedUser('Alex');
+    componentWillMount() {
+        this.filterUsers(this.state.selectedPerson);
     }
 
     updateSelectedUser(person) {
@@ -35,30 +35,15 @@ class App extends React.Component {
             }.bind(this));
         };
 
+    
     filterUsers(selectedUser) {
-        console.log(selectedUser);
-        {userObject.users.map((user) => {
+        {userObject.users.user.filter((user) => {
             if (user.name === selectedUser) {
-                console.log(name)
                 this.updateUserObject(user);
         }})}
     }
 
-    // filterUsers () {
-    //     {userObject.userObject.map((user) => {
-    //         if (user.name === this.state.selectedPerson) {
-    //             this.setState(function () {
-    //                 return {
-    //                     user: user
-    //                 }
-    //             })
-    //             console.log(user);
-    //         }
-    //     })}
-    // }
-
     updateUserObject (user) {
-        console.log(user);
         this.setState(function() {
             return {
                 user: user
