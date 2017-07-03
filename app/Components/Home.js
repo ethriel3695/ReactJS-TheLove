@@ -14,19 +14,14 @@ class Home extends React.Component {
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
     }
 
-    shouldComponentUpdate() {
-        if (this.props.user.name !== this.state.degreeVariation) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    componentWillReceiveProps() {
+        this.setState({
+            degreeVariation: 0
+        })
     }
 
-    ComponentWillUpdate() {
-        console.log('this needs to happen when user changes');
+    componentWillUpdate(nextProps, nextState) {
         this.updateImagesPosition(0);
-        //this.rotateImagesRight();
     }
 
     rotateImagesLeft() {

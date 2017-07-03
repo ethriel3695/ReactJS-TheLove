@@ -52,16 +52,6 @@ class App extends React.Component {
     }
 
     render () {
-        // return (
-        //         <div className='container'>
-        //             <Navigation
-        //             selectedPerson={this.state.selectedPerson}
-        //             onSelect={this.updatePerson}
-        //              />
-        //             <Home />
-        //             <Description />
-        //         </div>
-        // )
         return (
                 <div className='container'>
                     <Navigation
@@ -72,7 +62,9 @@ class App extends React.Component {
                         user={this.state.user}
                     />
                      })}
-                    <Description />
+                    <Description 
+                        user={this.state.user}
+                    />
                 </div>
         )
     }

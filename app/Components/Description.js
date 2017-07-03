@@ -6,18 +6,16 @@ class Description extends React.Component {
         return (
 
             <div className='descriptionContainer'>
-            <h1 className='descriptionHeader'>Why I love Alex</h1>
-            <ul className='descriptionList'>
-                <li className='descriptionItem'>
-                    Alex has a contagious smile!
-                </li>
-                <li className='descriptionItem'>
-                    Alex gives great hugs!
-                </li>
-                <li className='descriptionItem'>
-                    Alex has so much love to give!
-                </li>
-            </ul>
+            <h1 className='descriptionHeader'>Why I love {this.props.user.name}</h1>
+                <ul className='descriptionList'>
+                {this.props.user.description.map((text) => {
+                return (
+                    <li className='descriptionItem' key={text}>
+                        {text}
+                    </li>
+                )
+                })}
+                </ul>
             </div>
         )
     }

@@ -19,38 +19,4 @@ function Navigation (props) {
     )
 }
 
-// class People extends React.Component {
-//     constructor (props) {
-//         super(props);
-//         this.state = {
-//             selectedPerson: ''
-//         };
-
-//         this.updatePerson = this.updatePerson.bind(this);
-//     }
-
-//     componentDidMount() {
-//         this.updatePerson(this.state.selectedPerson);
-//     }
-
-//     updatePerson (person) {
-//         this.setState(function () {
-//             return {
-//                 selectedPerson: person
-//             }
-//         });
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <Navigation
-//                     selectedPerson={this.state.selectedPerson}
-//                     onSelect={this.updatePerson}
-//                      />
-//             </div>
-//         )
-//     }
-// }
-
 module.exports = Navigation;
