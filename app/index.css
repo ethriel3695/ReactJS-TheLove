@@ -1,3 +1,11 @@
+#backgroundContainer {
+  background: url(utilities/Alex01.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
@@ -72,36 +80,36 @@ li {
     border-radius: 5px;
 }
 
-.pic1 {
+.pic0 {
     transform: rotateY(0deg) translateZ(250px);
 }
 
-.pic2 {
+.pic1 {
     transform: rotateY(60deg) translateZ(250px);
 }
 
-.pic3 {
+.pic2 {
     transform: rotateY(120deg) translateZ(250px);
 }
 
-.pic4 {
+.pic3 {
     transform: rotateY(180deg) translateZ(250px);
 }
 
-.pic5 {
+.pic4 {
     transform: rotateY(240deg) translateZ(250px);
 }
 
-.pic6 {
+.pic5 {
     transform: rotateY(300deg) translateZ(250px);
 }
 
-.next {
+.moveRight {
 transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
 
-.prev {
+.moveLeft {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
 }
@@ -116,8 +124,8 @@ i {
     padding: 15px;
 }
 
-.next { left: 28em; }
-.prev { right: 28em; }
+.moveRight { left: 28em; }
+.moveLeft { right: 28em; }
 
 .captionContainer {
     display: block;

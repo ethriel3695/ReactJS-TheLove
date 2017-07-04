@@ -9,8 +9,7 @@ class Home extends React.Component {
             degreeVariation: 0
         }
 
-        this.rotateImagesLeft = this.rotateImagesLeft.bind(this);
-        this.rotateImagesRight = this.rotateImagesRight.bind(this);
+        this.rotateImages = this.rotateImages.bind(this);
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
     }
 
@@ -24,17 +23,14 @@ class Home extends React.Component {
         this.updateImagesPosition(0);
     }
 
-    rotateImagesLeft() {
+    rotateImages(e) {
+        var classIdentifier = e.target.className;
+        var degreeModifier = 0;
+        if (classIdentifier === 'moveLeft' 
+            ? degreeModifier = 60 : degreeModifier = -60) {
+        }
         this.setState({
-            degreeVariation: this.state.degreeVariation + 60,
-        }, function () {
-            this.updateImagesPosition(this.state.degreeVariation);
-        }.bind(this));
-    }
-
-    rotateImagesRight() {
-        this.setState({
-            degreeVariation: this.state.degreeVariation - 60,
+            degreeVariation: this.state.degreeVariation + degreeModifier,
         }, function () {
             this.updateImagesPosition(this.state.degreeVariation);
         }.bind(this));
@@ -54,41 +50,27 @@ class Home extends React.Component {
                 <h1 className='header'>{this.props.user.name}</h1>
                 <div className='imageContainer'>
                     <div className='carouselContainer'>
-                        <img className='carouselImages pic1'
-                            src={this.props.user.images[0]} alt='This is alex' />
-                        <figcaption className='captionContainer pic1'>
-                            Alex and Ruby
-                        </figcaption>
-                        <img className='carouselImages pic2'
-                            src={this.props.user.images[1]} alt='' />
-                        <figcaption className='captionContainer pic2'>
-                            Alex is cute
-                        </figcaption>
-                        <img className='carouselImages pic3'
-                            src={this.props.user.images[2]} alt='' />
-                        <figcaption className='captionContainer pic3'>
-                            Alex Test 2
-                        </figcaption>
-                        <img className='carouselImages pic4'
-                            src={this.props.user.images[3]} alt='' />
-                        <figcaption className='captionContainer pic4'>
-                            Alex Test 3
-                        </figcaption>
-                        <img className='carouselImages pic5'
-                            src={this.props.user.images[4]} alt='' />
-                        <figcaption className='captionContainer pic5'>
-                            Alex Test 4
-                        </figcaption>
-                        <img className='carouselImages pic6'
-                            src={this.props.user.images[5]} alt='' />
-                        <figcaption className='captionContainer pic6'>
-                            Alex Test 5
-                        </figcaption>
+                    {this.props.user.images.map((image, index) => {
+                        return (
+                            <img className={'carouselImages pic' + index}
+                                src={image} alt='This is alex'
+                                key={image + index} />
+
+                        )
+                    })}    
+                    {this.props.user.imageCaption.map((caption, index) => {
+                        return (
+                            <figcaption className={'captionContainer pic' + index}
+                            key={caption + index}>
+                                {caption}
+                            </figcaption>
+                        )
+                    })}       
                     </div>
-                    <i className="next"
-                        onClick={this.rotateImagesRight}></i>
-                    <i className="prev"
-                        onClick={this.rotateImagesLeft}></i>
+                    <i className="moveRight"
+                        onClick={this.rotateImages}></i>
+                    <i className="moveLeft"
+                        onClick={this.rotateImages}></i>
                 </div>
             </div>
         )

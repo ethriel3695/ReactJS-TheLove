@@ -1,9 +1,4 @@
 var React = require('react');
-//var Popular = require('./Popular');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
 var Navigation = require('./Navigation');
 var Description = require('./Description');
 var Home = require('./Home');
@@ -15,7 +10,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             selectedPerson: 'Alex',
-            user: []
+            user: [],
+            users: userObject
         };
 
         this.updateSelectedUser = this.updateSelectedUser.bind(this);
@@ -44,17 +40,23 @@ class App extends React.Component {
     }
 
     updateUserObject (user) {
-        this.setState(function() {
-            return {
+        this.setState({
                 user: user
-            }
-        });
+            }, function () {
+                this.updateBackground(user);
+            }.bind(this));
+        };
+
+    updateBackground(user) {
+        var backgroundImage = document.getElementById("backgroundContainer");
+        backgroundImage.style.background = "url(" + user.background + ")";
     }
 
     render () {
         return (
                 <div className='container'>
                     <Navigation
+                        users={this.state.users}
                         selectedPerson={this.state.selectedPerson}
                         onSelect={this.updateSelectedUser}
                      />

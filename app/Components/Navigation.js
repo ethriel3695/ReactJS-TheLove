@@ -1,17 +1,14 @@
 var React = require('react');
 
 function Navigation (props) {
-    var people = ['Alex', 'Ben', 'Britton', 'Eliza', 'Ethan', 'Jess', 'Karen'
-        , 'Marilyn', 'Megan', 'Reuben', 'Ruby', 'Sophia'];
-
     return (
         <ul className='nav'>
-        {people.map((person) => {
+        {props.users.users.user.map((user) => {
             return (
-                <li className={person === props.selectedPerson ? 'active' : ''}
-                    onClick={props.onSelect.bind(null, person)}
-                    key={person}>
-                    {person}
+                <li className={user.name === props.selectedPerson ? 'active' : ''}
+                    onClick={props.onSelect.bind(null, user.name)}
+                    key={user.name}>
+                    {user.name}
                 </li>
             )
         })}
