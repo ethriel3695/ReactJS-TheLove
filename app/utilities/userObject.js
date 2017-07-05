@@ -8,9 +8,9 @@ export const users = {
         {
             name: 'Alex',
             description: [
-                    ' has a contagious smile!',
-                    ' gives great hugs!',
-                    ' has so much love to give!'
+                    'He loves everyone and everything!',
+                    'He is always courteous and polite!',
+                    'He is my perfect little boy!'
             ],
             images: [
                     Alex01,
@@ -33,9 +33,9 @@ export const users = {
         {
             name: 'Ben',
             description: [
-                    ' will always choose to assist others!',
-                    ' knows everything about everything!',
-                    ' always cries during emotional movies!'
+                    'He always chooses to assist others!',
+                    'He knows everything about everything!',
+                    'He always cries during emotional movies!'
             ],
             images: [
                     Alex02,
@@ -58,9 +58,9 @@ export const users = {
         {
             name: 'Britton',
             description: [
-                    ' will always choose to assist others!',
-                    ' knows everything about everything!',
-                    ' always cries during emotional movies!'
+                    'I love watching how incredible he is at playing the fiddle!',
+                    'He always comes up with incredible ideas!',
+                    'He loves having conversations with me!'
             ],
             images: [
                     Alex02,
@@ -83,9 +83,9 @@ export const users = {
         {
             name: 'Eliza',
             description: [
-                    ' will always choose to assist others!',
-                    ' knows everything about everything!',
-                    ' always cries during emotional movies!'
+                    'She is fantastic with Alex and Ruby!',
+                    'She is always up for going on an adventure!',
+                    'She will always own her voice!'
             ],
             images: [
                     Alex02,
@@ -108,9 +108,9 @@ export const users = {
         {
             name: 'Ethan',
             description: [
-                    ' will always choose to assist others!',
-                    ' knows everything about everything!',
-                    ' always cries during emotional movies!'
+                    'I am always astonished by his compassion!',
+                    'He loves being a nerd and talking about video games with me!',
+                    'He is always willing to go and experience new things!'
             ],
             images: [
                     Alex02,
@@ -133,9 +133,9 @@ export const users = {
         {
             name: 'Jess',
             description: [
-                    ' will always choose to assist others!',
-                    ' knows everything about everything!',
-                    ' always cries during emotional movies!'
+                    'She has more loyalty and love than anyone I know!',
+                    'She always knows what to say to make any situation better!',
+                    'She is headstrong and a beautiful and inspiring woman!'
             ],
             images: [
                     Alex02,
