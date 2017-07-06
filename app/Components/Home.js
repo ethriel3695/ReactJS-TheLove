@@ -1,5 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
+var oldMousePosition = 0;
 
 class Home extends React.Component {
 
@@ -11,6 +12,7 @@ class Home extends React.Component {
 
         this.rotateImages = this.rotateImages.bind(this);
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
+        this.changeBackground = this.changeBackground.bind(this);
     }
 
     componentWillReceiveProps() {
@@ -23,10 +25,40 @@ class Home extends React.Component {
         this.updateImagesPosition(0);
     }
 
+    changeBackground (event) {
+        
+        //var cssClass = "pic" + index;
+        // console.log(cssClass);
+        console.log(event);
+        // var currentImage = document.getElementsByClassName('carouselContainer');
+        // if (currentImage[0] !== undefined) {
+        //     console.log(event);
+        //     if (currentImage[0].style.transform === "rotateY(0deg)") {
+        //     console.log(cssClass);
+        //}
+        //}
+        
+        
+        // console.log(currentImage[0]);
+        // console.log(image, index);
+    }
+
     rotateImages(e) {
+        // var degreeModifier = 0;
+        // console.log(oldMousePosition);
+        // console.log(e.pageX);
+        // if (e.pageX + 50 > oldMousePosition ? degreeModifier = 60 : degreeModifier = -60) {   
+        // }this.setState({
+        //     degreeVariation: this.state.degreeVariation + degreeModifier,
+        // }, function () {
+        //     this.updateImagesPosition(this.state.degreeVariation);
+        // }.bind(this));
+        // oldMousePosition = e.pageX;
+        // console.log(oldMousePosition);
         var classIdentifier = e.target.className;
+        console.log(e.pageX);
         var degreeModifier = 0;
-        if (classIdentifier === 'moveLeft' 
+        if (classIdentifier === 'moveLeft' || e.pageX < 950
             ? degreeModifier = 60 : degreeModifier = -60) {
         }
         this.setState({
@@ -53,9 +85,10 @@ class Home extends React.Component {
                     {this.props.user.images.map((image, index) => {
                         return (
                             <img className={'carouselImages pic' + index}
+                                onMouseDown={this.rotateImages}
+                                
                                 src={image} alt='This is alex'
                                 key={image + index} />
-
                         )
                     })}    
                     {this.props.user.imageCaption.map((caption, index) => {

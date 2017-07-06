@@ -1,13 +1,6 @@
-#backgroundContainer {
-  background: url(utilities/Alex01.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 body {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    background-color: #D7D7D5;
 }
 
 .container {
@@ -78,6 +71,7 @@ li {
     line-height: 200px;
     text-align: center;
     border-radius: 5px;
+    z-index: 1001;
 }
 
 .pic0 {

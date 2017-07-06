@@ -4,6 +4,8 @@ var Description = require('./Description');
 var Home = require('./Home');
 import * as userObject from '../utilities/userObject.js';
 
+//USE http://www.pictaculous.com/ for complementary color reference
+
 class App extends React.Component {
 
     constructor (props) {
@@ -48,8 +50,8 @@ class App extends React.Component {
         };
 
     updateBackground(user) {
-        var backgroundImage = document.getElementById("backgroundContainer");
-        backgroundImage.style.background = "url(" + user.background + ")";
+        var backgroundImage = document.getElementsByTagName("body");
+        backgroundImage[0].style.backgroundColor = "#D7D7D5";
     }
 
     render () {

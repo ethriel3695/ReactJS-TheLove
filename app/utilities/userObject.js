@@ -1,7 +1,6 @@
 var React = require('react');
 import Alex01 from './Alex01.jpg'
 import Alex02 from './Alex02.jpg'
-import ElizaBackground from './ElizaBackground.jpg'
 
 export const users = {
     user: [
@@ -27,8 +26,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Ben',
@@ -52,8 +50,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Britton',
@@ -77,8 +74,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Eliza',
@@ -102,8 +98,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: ElizaBackground
+            ]
         },
         {
             name: 'Ethan',
@@ -127,8 +122,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Jess',
@@ -152,8 +146,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Karen',
@@ -177,8 +170,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Marilyn',
@@ -202,8 +194,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Megan',
@@ -227,8 +218,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Ruby',
@@ -252,8 +242,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         },
         {
             name: 'Sophia',
@@ -277,8 +266,7 @@ export const users = {
                     'Picture 4',
                     'Picture 5',
                     'Picture 6'
-            ],
-            background: Alex01
+            ]
         }
     ]
 }
