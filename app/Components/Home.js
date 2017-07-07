@@ -3,6 +3,8 @@ var Link = require('react-router-dom').Link;
 var api = require('../utilities/api.js');
 var oldMousePosition = 0;
 
+var isFront = '0';
+
 class Home extends React.Component {
 
     constructor(props) {
@@ -14,6 +16,17 @@ class Home extends React.Component {
         this.rotateImages = this.rotateImages.bind(this);
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
         this.changeBackground = this.changeBackground.bind(this);
+        this.obtainImage = this.obtainImage.bind(this);
+    }
+
+    componentDidMount () {
+        var defaultImage = document.getElementsByClassName('carouselImages pic0');
+        // var attribute = defaultImage.getAttribute('data-isFirst');
+        // console.log(attribute);
+        console.log(defaultImage);
+        defaultImage[0].dataset.first = 1
+        console.log(defaultImage[0].dataset.first);
+        this.updateImagesPosition(this.state.degreeVariation);
     }
 
     componentWillReceiveProps() {
@@ -26,11 +39,50 @@ class Home extends React.Component {
         this.updateImagesPosition(0);
     }
 
-    changeBackground (element) {
-        var complementaryColors = api.getPictaculousObject(element);
+    changeBackground (image) {
+        console.log(image);
+        var actualImage = image.slice(22);
+        var canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        // Copy the image contents to the canvas
+        var ctx = canvas.getContext("2d");
+        console.log(ctx.drawImage(image, 0, 0));
+
+        // Get the data-URL formatted image
+        // Firefox supports PNG and JPEG. You could check img.src to guess the
+        // original format, but be aware the using "image/jpg" will re-encode the image.
+        var dataURL = canvas.toDataURL("image/jpeg");
+
+        return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+        
+        console.log(actualImage);
+        api.fetchPictaculousObject(actualImage);
+    }
+
+    obtainImage (parentObject) {
+        console.log(parentObject);
+        var currentImage = [];
+        var childrenArray = [].slice.call(parentObject[0].children);
+        console.log(parentObject[0].children);
+        console.log(childrenArray);
+        {childrenArray.filter((child) => {
+            console.log(child.dataset.first);
+            if (child.dataset.first === '1') {
+                console.log('this happens');
+                console.log(child.src);
+                currentImage = child.src;
+                //this.changeBackground (currentImage);
+            }                
+        })}
+        
+        console.log(currentImage);
+        //var complementaryColors = api.getPictaculousObject(element);
         //var cssClass = "pic" + index;
         // console.log(cssClass);
-        console.log(complementaryColors);
+        //console.log(complementaryColors);
         // var currentImage = document.getElementsByClassName('carouselContainer');
         // if (currentImage[0] !== undefined) {
         //     console.log(event);
@@ -56,29 +108,37 @@ class Home extends React.Component {
         // }.bind(this));
         // oldMousePosition = e.pageX;
         // console.log(oldMousePosition);
-        console.log(e.target.src);
+        console.log(e.currentTarget.src);
+        console.log('break these up');
+        console.log(window.currentImage);
         var image = e.target.src;
         var classIdentifier = e.target.className;
         console.log(e.pageX);
         var degreeModifier = 0;
-        if (classIdentifier === 'moveLeft' || e.pageX < 485
-            ? degreeModifier = 60 : degreeModifier = -60) {
+        if (classIdentifier === 'moveLeft') {
+            degreeModifier = 60;
+        }
+        else if (classIdentifier === 'moveRight') {
+            degreeModifier = -60;
         }
         this.setState({
             degreeVariation: this.state.degreeVariation + degreeModifier,
         }, function () {
-            this.updateImagesPosition(this.state.degreeVariation, image);
+            this.updateImagesPosition(this.state.degreeVariation);
         }.bind(this));
     }
 
-    updateImagesPosition(currentPosition, image) {
+    updateImagesPosition(currentPosition) {
+        // if (currentPosition < - 360 || currentPosition > 360) {
+        //     currentPosition = 0;
+        // }
         var carouselObject = document.getElementsByClassName("carouselContainer");
         carouselObject[0].style.transform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.webkitTransform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.mozTransform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.oTransform = "rotateY(" + currentPosition + "deg)";
 
-        this.changeBackground(image);
+        this.obtainImage(carouselObject);
     }
 
     render() {
@@ -87,12 +147,11 @@ class Home extends React.Component {
                 <h1 className='header'>{this.props.user.name}</h1>
                 <div className='imageContainer'>
                     <div className='carouselContainer'>
-                    {this.props.user.images.map((image, index) => {
+                    {this.props.user.images.map((image, index, front) => {
                         return (
                             <img className={'carouselImages pic' + index}
-                                onMouseDown={this.rotateImages}
-                                
                                 src={image} alt='This is alex'
+                                data-first='0'
                                 key={image + index} />
                         )
                     })}    

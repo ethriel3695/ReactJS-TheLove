@@ -35,6 +35,7 @@ class App extends React.Component {
 
     
     filterUsers(selectedUser) {
+        console.log(userObject.users.user);
         {userObject.users.user.filter((user) => {
             if (user.name === selectedUser) {
                 this.updateUserObject(user);
