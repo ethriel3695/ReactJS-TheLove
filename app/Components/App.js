@@ -4,8 +4,6 @@ var Description = require('./Description');
 var Home = require('./Home');
 import * as userObject from '../utilities/userObject.js';
 
-//USE http://www.pictaculous.com/ for complementary color reference
-
 class App extends React.Component {
 
     constructor (props) {
@@ -35,7 +33,6 @@ class App extends React.Component {
 
     
     filterUsers(selectedUser) {
-        console.log(userObject.users.user);
         {userObject.users.user.filter((user) => {
             if (user.name === selectedUser) {
                 this.updateUserObject(user);
