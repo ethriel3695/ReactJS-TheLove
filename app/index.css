@@ -23,7 +23,7 @@ li {
 }
 
 .navContainer {
-    position: absolute;
+    position: relative;
     min-width: 160px;
     z-index: 1001;
 }
@@ -33,13 +33,14 @@ li {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-align: center;
 }
 
 .nav li {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 3px 8px;
     text-decoration: none;
     color: #d0021b;
     cursor: pointer;
@@ -47,7 +48,7 @@ li {
 }
 
 .active {
-    font-weight: bold;
+    color: #2C63C7 !important;
 }
 
 .home-container {
@@ -162,21 +163,25 @@ i {
     ul {
         padding: 0;
     }
-
-li {
-        list-style-type: none;
-    }
-
-.nav {
+    .navContainer {
         display: flex;
     }
 
-.nav li {
+    li {
+        list-style-type: none;
+    }
+
+    .nav {
+        display: flex;
+    }
+
+    .nav li {
         margin: 10px;
         text-decoration: none;
         color: #d0021b;
         cursor: pointer;
         list-style-type: none;
+        padding: 2px;
     }
     .imageContainer {
         width: 270px;
