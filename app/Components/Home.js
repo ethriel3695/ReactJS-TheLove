@@ -23,6 +23,13 @@ class Home extends React.Component {
         var defaultImage = document.getElementsByClassName('carouselImages pic0');
         defaultImage[0].dataset.first = 1
         this.updateImagesPosition(this.state.degreeVariation);
+        //var defaultImage = document.getElementsByClassName('carouselImages pic0');
+        // var attribute = defaultImage.getAttribute('data-isFirst');
+        // console.log(attribute);
+        // console.log(defaultImage);
+        // defaultImage[0].dataset.first = 1
+        // console.log(defaultImage[0].dataset.first);
+        // this.updateImagesPosition(this.state.degreeVariation);
     }
 
     componentWillReceiveProps() {
@@ -38,6 +45,9 @@ class Home extends React.Component {
     changeBackground (image) {
         var actualImage = image.slice(22);
         api.fetchPictaculousObject(image);
+        console.log(image);S
+        var actualImage = image.slice(22);
+        api.fetchPictaculousObject(actualImage);
     }
 
     obtainImage (parentObject) {
@@ -90,7 +100,7 @@ class Home extends React.Component {
         carouselObject[0].style.mozTransform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.oTransform = "rotateY(" + currentPosition + "deg)";
 
-        this.obtainImage(carouselObject);
+        //this.obtainImage(carouselObject);
     }
 
     render() {
