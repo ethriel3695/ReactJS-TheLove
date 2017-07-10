@@ -22,15 +22,28 @@ li {
     list-style-type: none;
 }
 
+.navContainer {
+    position: absolute;
+    min-width: 160px;
+    z-index: 1001;
+}
+
 .nav {
-    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .nav li {
-    margin: 10px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
     color: #d0021b;
     cursor: pointer;
+    list-style-type: none;
 }
 
 .active {
@@ -38,9 +51,10 @@ li {
 }
 
 .home-container {
+    padding: 0;
     text-align: center;
-    width: 380px;
-    height: 320px;
+    width: 240px;
+    height: 220px;
 }
 
 .header {
@@ -49,8 +63,8 @@ li {
 
 .imageContainer {
     margin: 0 auto;
-    width: 170px;
-    height: 140px;
+    width: 140px;
+    height: 120px;
     position: relative;
     perspective: 1000px;
 }
@@ -66,98 +80,63 @@ li {
 .carouselImages {
     display: block;
     position: absolute;
-    width: 170px;
-    height: 140px;
-    line-height: 200px;
+    width: 140px;
+    height: 130px;
+    line-height: 100px;
     text-align: center;
     border-radius: 5px;
     z-index: 1050;
     image-orientation: flip;
 }
 
-@media only screen and (min-width: 725px) {
-    .imageContainer {
-        width: 270px;
-        height: 240px;
-    }
-    .carouselImages {
-        width: 270px;
-        height: 240px;
-        line-height: 100px;
-    }
-    .home-container {
-        width: 500px;
-        height: 450px;
-    }
-    .header {
-        margin-bottom: 130px;
-    }
-    .captionContainer {
-        width: 270px;
-        height: 240px;
-        line-height: 520px;
-    }
-    .moveRight { left: 28em; }
-    .moveLeft { right: 28em; }
-    .i {
-        top: 110px;
-    }
-}
-
 .pic0 {
-    transform: rotateY(0deg) translateZ(250px);
+    transform: rotateY(0deg) translateZ(130px);
 }
 
 .pic1 {
-    transform: rotateY(60deg) translateZ(250px);
+    transform: rotateY(60deg) translateZ(130px);
 }
 
 .pic2 {
-    transform: rotateY(120deg) translateZ(250px);
+    transform: rotateY(120deg) translateZ(130px);
 }
 
 .pic3 {
-    transform: rotateY(180deg) translateZ(250px);
+    transform: rotateY(180deg) translateZ(130px);
 }
 
 .pic4 {
-    transform: rotateY(240deg) translateZ(250px);
+    transform: rotateY(240deg) translateZ(130px);
 }
 
 .pic5 {
-    transform: rotateY(300deg) translateZ(250px);
+    transform: rotateY(300deg) translateZ(130px);
 }
 
 .moveRight {
 transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    left: 13em;
 }
 
 .moveLeft {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
+    right: 13em;
 }
 
 i {
   border: solid #000;
-    top: 70px;
+    top: 60px;
     cursor: pointer;
     position: absolute;
     border-width: 0 5px 5px 0;
     display: inline-block;
-    padding: 15px;
+    padding: 7px;
 }
 
-.moveRight { left: 12em; }
-.moveLeft { right: 12em; }
-
 .captionContainer {
-    display: block;
-    position: absolute;
-    height: 140px;
-    width: 170px;
-    line-height: 360px;
-    text-align: center;
+    display: none;
 }
 
 .descriptionContainer {
@@ -177,4 +156,80 @@ i {
 .descriptionItem {
     list-style-type: none;
     padding: 20px;
+}
+
+@media only screen and (min-width: 725px) {
+    ul {
+        padding: 0;
+    }
+
+li {
+        list-style-type: none;
+    }
+
+.nav {
+        display: flex;
+    }
+
+.nav li {
+        margin: 10px;
+        text-decoration: none;
+        color: #d0021b;
+        cursor: pointer;
+        list-style-type: none;
+    }
+    .imageContainer {
+        width: 270px;
+        height: 240px;
+    }
+    .carouselImages {
+        width: 270px;
+        height: 240px;
+        line-height: 100px;
+    }
+    .home-container {
+        width: 500px;
+        height: 450px;
+    }
+    .header {
+        margin-bottom: 130px;
+    }
+    .captionContainer {
+        display: block;
+        position: absolute;
+        text-align: center;
+        width: 270px;
+        height: 240px;
+        line-height: 520px;
+    }
+    .moveRight { left: 28em; }
+    .moveLeft { right: 28em; }
+      i {
+        top: 110px;
+        padding: 15px;
+    }
+
+    .pic0 {
+        transform: rotateY(0deg) translateZ(250px);
+    }
+
+    .pic1 {
+        transform: rotateY(60deg) translateZ(250px);
+    }
+
+    .pic2 {
+        transform: rotateY(120deg) translateZ(250px);
+    }
+
+    .pic3 {
+        transform: rotateY(180deg) translateZ(250px);
+    }
+
+    .pic4 {
+        transform: rotateY(240deg) translateZ(250px);
+    }
+
+    .pic5 {
+        transform: rotateY(300deg) translateZ(250px);
+    }
 }
