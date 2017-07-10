@@ -4,8 +4,6 @@ var Description = require('./Description');
 var Home = require('./Home');
 import * as userObject from '../utilities/userObject.js';
 
-//USE http://www.pictaculous.com/ for complementary color reference
-
 class App extends React.Component {
 
     constructor (props) {
@@ -65,10 +63,10 @@ class App extends React.Component {
                     <Home 
                         user={this.state.user}
                     />
-                     })}
                     <Description 
                         user={this.state.user}
                     />
+                    
                 </div>
         )
     }
