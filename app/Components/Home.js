@@ -1,9 +1,10 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
 var api = require('../utilities/api.js');
-var oldMousePosition = 0;
 
-var isFront = '0';
+var xDown = null;
+var yDown = null;
+var direction = '';
 
 class Home extends React.Component {
 
@@ -17,19 +18,50 @@ class Home extends React.Component {
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
         this.changeBackground = this.changeBackground.bind(this);
         this.obtainImage = this.obtainImage.bind(this);
+        this.handleTouchStart = this.handleTouchStart.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
+    }
+
+    handleTouchStart (e) {
+        xDown = e.touches[0].clientX;
+        yDown = e.touches[0].clientY;
+    }
+
+    handleTouchMove (e) {
+        if (!xDown || !yDown) {
+            return;
+        }
+
+        var xUp = e.touches[0].clientX;
+        var yUp = e.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > 0) {
+                direction = 'right';
+                this.rotateImages();
+            } else {
+                direction = 'left';
+                this.rotateImages();
+            }
+        } else {
+            if (yDiff > 0) {
+                //console.log('up');
+            } else {
+                //console.log('down');
+            }
+        }
+
+        xDown = null;
+        yDown = null;
     }
 
     componentDidMount () {
         var defaultImage = document.getElementsByClassName('carouselImages pic0');
         defaultImage[0].dataset.first = 1
         this.updateImagesPosition(this.state.degreeVariation);
-        //var defaultImage = document.getElementsByClassName('carouselImages pic0');
-        // var attribute = defaultImage.getAttribute('data-isFirst');
-        // console.log(attribute);
-        // console.log(defaultImage);
-        // defaultImage[0].dataset.first = 1
-        // console.log(defaultImage[0].dataset.first);
-        // this.updateImagesPosition(this.state.degreeVariation);
     }
 
     componentWillReceiveProps() {
@@ -45,7 +77,6 @@ class Home extends React.Component {
     changeBackground (image) {
         var actualImage = image.slice(22);
         api.fetchPictaculousObject(image);
-        console.log(image);S
         var actualImage = image.slice(22);
         api.fetchPictaculousObject(actualImage);
     }
@@ -77,13 +108,18 @@ class Home extends React.Component {
     }
 
     rotateImages(e) {
-        var image = e.target.src;
-        var classIdentifier = e.target.className;
         var degreeModifier = 0;
-        if (classIdentifier === 'moveLeft') {
+        var classIdentifier = '';
+        if (direction === '' || e !== undefined) {
+            classIdentifier = e.target.className;
+        }
+        if (classIdentifier === 'moveLeft' || classIdentifier === 'moveRight') {
+            direction = '';
+        }
+        if (classIdentifier === 'moveLeft' || direction === 'left') {
             degreeModifier = 60;
         }
-        else if (classIdentifier === 'moveRight') {
+        else if (classIdentifier === 'moveRight' || direction === 'right') {
             degreeModifier = -60;
         }
         this.setState({
@@ -114,7 +150,9 @@ class Home extends React.Component {
                             <img className={'carouselImages pic' + index}
                                 src={image} alt='This is alex'
                                 data-first='0'
-                                key={image + index} />
+                                key={image + index} 
+                                onTouchStart={this.handleTouchStart}
+                                onTouchMove={this.handleTouchMove}/>
                         )
                     })}    
                     {this.props.user.imageCaption.map((caption, index) => {
