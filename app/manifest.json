@@ -1,15 +1,15 @@
 {
   "name": "ReactJS-TheLove",
   "short_name": "Love",
-  "display": "minimal-ui",
-  "start_url": "https://reactjs-love.firebaseapp.com/",
+  "display": "standalone",
+  "start_url": "./app/index.html/",
   "theme_color": "#673ab6",
   "background_color": "#111111",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./utilities/Alex01.png",
       "sizes": "192x192",
-      "type": "./utilities/Alex01.jpg"
+      "type": "image/png"
     }
   ]
 }
