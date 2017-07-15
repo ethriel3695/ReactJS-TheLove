@@ -3,3 +3,4 @@ navigator.serviceWorker && navigator.serviceWorker.register('./app/sw.js').then(
 }).catch(function(error) {
     console.log('ServiceWorker registration failed:', error);
 });
+
