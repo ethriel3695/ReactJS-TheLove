@@ -36,6 +36,10 @@ var config = {
                                 optipng: {
                                     optimizationLevel: 7,
                                     interlaced: false
+                                },
+                                webp: {
+                                    progressive: true,
+                                    quality: 65
                                 }
                             }
                         }

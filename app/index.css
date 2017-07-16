@@ -3,6 +3,19 @@ body {
     background-color: #D7D7D5;
 }
 
+.noJavascriptApp {
+    text-align: center;
+}
+
+.App-header {
+    height: 150px;
+    padding: 20px;
+}
+
+.App-intro {
+    font-size: large;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -11,7 +24,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #d0021b;
+    color: #2C63C7;
 }
 
 ul {
@@ -42,13 +55,13 @@ li {
     text-align: center;
     padding: 3px 8px;
     text-decoration: none;
-    color: #d0021b;
+    color: #2C63C7;
     cursor: pointer;
     list-style-type: none;
 }
 
 .active {
-    color: #2C63C7 !important;
+    color: #BD8283 !important;
 }
 
 .home-container {
@@ -243,7 +256,7 @@ and (orientation: landscape) {
     .nav li {
         margin: 10px;
         text-decoration: none;
-        color: #d0021b;
+        color: #2C63C7;
         cursor: pointer;
         list-style-type: none;
         padding: 2px;
