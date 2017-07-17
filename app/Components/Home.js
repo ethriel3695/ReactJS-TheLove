@@ -17,7 +17,6 @@ class Home extends React.Component {
         this.rotateImages = this.rotateImages.bind(this);
         this.updateImagesPosition = this.updateImagesPosition.bind(this);
         this.changeBackground = this.changeBackground.bind(this);
-        this.obtainImage = this.obtainImage.bind(this);
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
     }
@@ -81,32 +80,6 @@ class Home extends React.Component {
         api.fetchPictaculousObject(actualImage);
     }
 
-    obtainImage (parentObject) {
-        var currentImage = [];
-        var childrenArray = [].slice.call(parentObject[0].children);
-        {childrenArray.filter((child) => {
-            if (child.dataset.first === '1') {
-                currentImage = child.src;
-                this.changeBackground (currentImage);
-            }                
-        })}
-        //var complementaryColors = api.getPictaculousObject(element);
-        //var cssClass = "pic" + index;
-        // console.log(cssClass);
-        //console.log(complementaryColors);
-        // var currentImage = document.getElementsByClassName('carouselContainer');
-        // if (currentImage[0] !== undefined) {
-        //     console.log(event);
-        //     if (currentImage[0].style.transform === "rotateY(0deg)") {
-        //     console.log(cssClass);
-        //}
-        //}
-        
-        
-        // console.log(currentImage[0]);
-        // console.log(image, index);
-    }
-
     rotateImages(e) {
         var degreeModifier = 0;
         var classIdentifier = '';
@@ -135,8 +108,6 @@ class Home extends React.Component {
         carouselObject[0].style.webkitTransform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.mozTransform = "rotateY(" + currentPosition + "deg)";
         carouselObject[0].style.oTransform = "rotateY(" + currentPosition + "deg)";
-
-        //this.obtainImage(carouselObject);
     }
 
     render() {

@@ -24,7 +24,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #2C63C7;
+    color: #d0021b;
 }
 
 ul {
@@ -55,13 +55,13 @@ li {
     text-align: center;
     padding: 3px 8px;
     text-decoration: none;
-    color: #2C63C7;
+    color: #d0021b;
     cursor: pointer;
     list-style-type: none;
 }
 
 .active {
-    color: #BD8283 !important;
+    color: #000000 !important;
 }
 
 .home-container {
@@ -256,7 +256,7 @@ and (orientation: landscape) {
     .nav li {
         margin: 10px;
         text-decoration: none;
-        color: #2C63C7;
+        color: #d0021b;
         cursor: pointer;
         list-style-type: none;
         padding: 2px;
